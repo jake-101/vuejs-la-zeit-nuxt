@@ -1,0 +1,28 @@
+{
+    "version": 2,
+    "public": true,
+    "builds": [
+        { "src": "/api/**/*.js", "use": "@now/node" },
+      {
+        "src": "nuxt.config.js",
+        "use": "@nuxtjs/now-builder",
+        "config": {
+          "serverFiles": ["server-middleware/**"]
+        }
+      }
+    ],
+  
+    "routes": [
+        
+            { "src": "/api/(.*)", "dest": "/api/$1.js"},
+            { "src": "/jake101/(.*)", "dest": "https://jake101.com/$1",
+                "headers": {
+                    "cache-control": "s-maxage=1800, stale-while-revalidate",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Headers": "Content-Type, Authorization"
+                  }}
+          
+    
+    ]
+  }
+  

@@ -1,0 +1,22 @@
+{
+    "version": 2,
+    "public": true,
+    "builds": [
+        { "src": "/api/**/*.js", "use": "@now/node" },
+      {
+        "src": "nuxt.config.js",
+        "use": "@nuxtjs/now-builder",
+        "config": {
+          "serverFiles": ["server-middleware/**"]
+        }
+      }
+    ],
+  
+    "routes": [
+        
+            { "src": "/api/(.*)", "dest": "/api/$1.js"}
+          
+    
+    ]
+  }
+  
